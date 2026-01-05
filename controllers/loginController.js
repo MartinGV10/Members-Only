@@ -4,6 +4,20 @@ function getHome(req, res) {
     })
 }
 
+function getSignup(req, res) {
+    res.render('sign-up', {
+        title: 'Sign Up'
+    })
+}
+
+function getLogin(req, res) {
+    res.render('log-in', {
+        title: 'Log In'
+    })
+}
+
 module.exports = {
-    getHome
+    getHome,
+    getSignup,
+    getLogin
 }

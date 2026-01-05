@@ -8,4 +8,7 @@ const loginController = require('../controllers/loginController')
 
 loginRoutes.get('/', loginController.getHome)
 
+loginRoutes.get('/sign-up', loginController.getSignup)
+loginRoutes.get('/log-in', loginController.getLogin)
+
 module.exports = loginRoutes
