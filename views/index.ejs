@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+    <%- include('nav', {user: user}) %>
     <div class="home">
         <div class="h-top">
             <h2>Click below to get started!</h2>
@@ -15,6 +16,7 @@
         <div class="h-bot">
             <a href="/sign-up">Sign Up</a>
             <a href="/log-in">Log in</a>
+            <a href="/clubhouse">Enter Clubhouse</a>
         </div>
     </div>
 </body>
