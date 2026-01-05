@@ -67,7 +67,7 @@ form, .other {
     align-items: center;
     justify-content: center;
     gap: 50px;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .f-item {
@@ -108,4 +108,70 @@ form input {
 .other {
     padding: 15px;
     width: 20%;
+}
+
+nav {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 50px;
+    background-color: rgb(37, 37, 39);
+}
+
+.n-side {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sel {
+    /* background-color: rgb(0, 0, 0); */
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s all;
+    position: relative;
+}
+
+.sel:hover {
+    transform: translateY(-2px);
+}
+
+.sel:hover::after {
+    transform: scaleX(1);
+}
+
+.sel:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(189, 34, 34);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.n-name {
+    font-size: 1.6rem;
+    transition: 0.2s all;
+    font-weight: 600;
+}
+
+.n-name:hover {
+    color: rgb(189, 34, 34);
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
