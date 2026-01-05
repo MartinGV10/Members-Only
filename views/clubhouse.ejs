@@ -7,9 +7,33 @@
     <title><%= title %></title>
 </head>
 <body>
-    <h1><%= title  %></h1>
+    <%- include('nav') %>
+    <div class="cont">
+        <h1><%= title  %></h1>
+        <% if (user) { %>
+            <h2>Welcome <%= user.first_name %>!</h2>
+        <% } %>
+
+        <% if(!user) { %>
+            <h2>Welcome Guest!</h2>
+        <% } %>
+
+        <div class="messages">
+            <% messages.map(msg => { %>
+                <div class="msg">
+                    <p><%= msg.title %></p>
+                    <p><%= msg.body %></p>
+                    <p><%= msg.user_id %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
     <% if (user) { %>
-        <h2>Welcome <%= user.first_name %>!</h2>
+        <div class="add">
+            <a href="/new-msg"><img src="/add.svg" alt="Create New Message"></a>
+        </div>
     <% } %>
+
 </body>
 </html>

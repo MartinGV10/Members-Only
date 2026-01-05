@@ -74,6 +74,24 @@ function ensureAuth(req, res, next) {
     }
 }
 
+function getNewMsg(req, res) {
+    res.render('new-msg', {
+        title: 'Create New Message'
+    })
+}
+
+async function postNewMsg(req, res) {
+    try {
+        const { title, body } = req.body
+        console.log('User -> ')
+        console.log(req.user.id)
+        await db.addMessage(req.user.id, title, body)
+        res.redirect('/clubhouse')
+    } catch (err) {
+        throw err
+    }
+}
+
 passport.use(
     new LocalStrategy(async (username, password, done) => {
         try {
@@ -103,5 +121,7 @@ module.exports = {
     getClubhouse,
     postSignup,
     postLogin,
+    getNewMsg,
+    postNewMsg,
     ensureAuth
 }

@@ -98,11 +98,12 @@ form button:hover, .other a:hover {
     background-color: rgba(0, 0, 0, 0.705);
 }
 
-form input {
+form input, form textarea {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.185);
     border: 2px solid rgb(179, 172, 166);
+    font-weight: 400;
 }
 
 .other {
@@ -174,4 +175,67 @@ nav a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.messages {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(4, 400px);
+    padding: 20px;
+    /* flex-direction: column; */
+    gap: 20px;
+}
+
+.msg {
+    display: flex;
+    background-color: rgb(37, 37, 39);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(87, 87, 87, 0.342);
+    border: 2px solid white;
+}
+
+.add a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(37, 37, 39);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s all;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+
+img {
+    width: 30px;
+}
+
+.add a:hover {
+    background-color: rgb(189, 34, 34);
+    /* background-color: rgb(82, 82, 87); */
+}
+
+.add {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 14px 20px;
+    border-radius: 999px;
+}
+
+.f-new {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;    
+}
+
+.new-text {
+    width: 500px;
+    height: 200px;
 }
