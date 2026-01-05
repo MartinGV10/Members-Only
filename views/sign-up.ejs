@@ -7,7 +7,7 @@
     <title><%= title %></title>
 </head>
 <body>
-    <%- include('nav') %>
+    <%- include('nav', {user: user}) %>
     <div class="form-cont">
         <form action="/sign-up" method="post">
             <h1 class="title"><%= title %></h1>

@@ -4,7 +4,14 @@
     </div>
 
     <div class="n-side">
-        <a class="sel" href="/log-in">Login</a>
+        <% if (!user) { %>
+            <a class="sel" href="/log-in">Login</a>
+        <% } %>
+        <% if (user) { %>
+            <form action="/logout" method="post" class="logout">
+                <button type="submit" class="sel">Log Out</button>
+            </form>
+        <% } %>
         <a class="sel" href="/sign-up">Sign up</a>
         <% if (user) { %>
             <a class="sel" href="/profile/<%= user.username %>">Profile Settings</a>

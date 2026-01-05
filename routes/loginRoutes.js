@@ -20,4 +20,6 @@ loginRoutes.post('/profile/:username', loginController.ensureAuth, loginControll
 
 loginRoutes.post('/delete/:id', loginController.postDelete)
 
+loginRoutes.post('/logout', loginController.logout)
+
 module.exports = loginRoutes

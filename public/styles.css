@@ -126,7 +126,7 @@ nav {
     gap: 20px;
 }
 
-.sel {
+.sel, .logout {
     /* background-color: rgb(0, 0, 0); */
     padding: 10px;
     cursor: pointer;
@@ -134,15 +134,15 @@ nav {
     position: relative;
 }
 
-.sel:hover {
+.sel:hover, .logout:hover {
     transform: translateY(-2px);
 }
 
-.sel:hover::after {
+.sel:hover::after, .logout:hover::after {
     transform: scaleX(1);
 }
 
-.sel:after {
+.sel:after, .logout::after {
     content: "";
     position: absolute;
     left: 0;
@@ -298,4 +298,15 @@ img {
     padding: 10px;
     font-weight: 500;
     border-radius: 10px;
+}
+
+.logout, .logout button, .logout button:hover, .logout {
+    all: unset;
+    display: block;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+
+.logout {
+    padding: 10px;
 }

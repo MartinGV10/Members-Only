@@ -32,7 +32,7 @@
                         <% } %>
                     </div>
                     <p class="msg-text"><%= msg.body %></p>
-                    <% if (user) { %>
+                    <% if (user && user.is_member == true) { %>
                         <div class="msg-top">
                             <p class="msg-user"><%= msg.username %></p>
                             <p class="msg-date"><%= new Date(msg.created_at).toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) %></p>

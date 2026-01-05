@@ -15,7 +15,8 @@ async function getHome(req, res) {
 
 function getSignup(req, res) {
     res.render('sign-up', {
-        title: 'Sign Up'
+        title: 'Sign Up',
+        user: req.user
     })
 }
 
@@ -77,7 +78,8 @@ function ensureAuth(req, res, next) {
 
 function getNewMsg(req, res) {
     res.render('new-msg', {
-        title: 'Create New Message'
+        title: 'Create New Message',
+        user: req.user
     })
 }
 
@@ -102,15 +104,25 @@ async function getProfile(req, res) {
 
 async function postProfile(req, res) {
     const { first_name, last_name, username, is_member, is_admin } = req.body
-    if ((is_member == 'true' || is_member == '') || (is_admin == 'true' || is_admin == '')) {
-        await db.updateUser(first_name, last_name, username, is_member, is_admin, req.user.id)
-    }
+    const currentUser = await db.getSessionId(req.user.id)
+    const updatedIsMember = is_member === 'true' ? true : currentUser.rows[0].is_member
+    const updatedIsAdmin = is_admin === 'true' ? true : currentUser.rows[0].is_admin
+    await db.updateUser(first_name, last_name, username, updatedIsMember, updatedIsAdmin, req.user.id)
     res.redirect('/clubhouse')
 }
 
 async function postDelete(req, res) {
     await db.deletePost(req.params.id)
     res.redirect('/clubhouse')
+}
+
+function logout(req, res, next) {
+    req.logout(function (err) {
+        if (err) {
+            return next(err)
+        }
+        res.redirect('/clubhouse')
+    })
 }
 
 passport.use(
@@ -147,5 +159,6 @@ module.exports = {
     ensureAuth,
     getProfile,
     postProfile,
-    postDelete
+    postDelete,
+    logout
 }
