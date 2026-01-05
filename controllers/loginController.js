@@ -58,7 +58,7 @@ function postLogin(req, res, next) {
 
 async function getClubhouse(req, res) {
     console.log(req.user)
-    const messages = await db.getMessages()
+    const { rows: messages } = await db.getMessages()
     res.render('clubhouse', {
         title: 'Clubhouse',
         user: req.user,
@@ -108,6 +108,11 @@ async function postProfile(req, res) {
     res.redirect('/clubhouse')
 }
 
+async function postDelete(req, res) {
+    await db.deletePost(req.params.id)
+    res.redirect('/clubhouse')
+}
+
 passport.use(
     new LocalStrategy(async (username, password, done) => {
         try {
@@ -141,5 +146,6 @@ module.exports = {
     postNewMsg,
     ensureAuth,
     getProfile,
-    postProfile
+    postProfile,
+    postDelete
 }

@@ -21,9 +21,24 @@
         <div class="messages">
             <% messages.map(msg => { %>
                 <div class="msg">
-                    <p><%= msg.title %></p>
-                    <p><%= msg.body %></p>
-                    <p><%= msg.user_id %></p>
+                    <div class="msg-top">
+                        <p class="msg-tit"><%= msg.title %></p>
+                        <% if (user && user.is_admin == true) { %>
+                            <div class="del">
+                                <form action="/delete/<%= msg.id %>" method="post">
+                                    <button type="submit" class="del-btn">Delete</button>
+                                </form>
+                            </div>
+                        <% } %>
+                    </div>
+                    <p class="msg-text"><%= msg.body %></p>
+                    <% if (user) { %>
+                        <div class="msg-top">
+                            <p class="msg-user"><%= msg.username %></p>
+                            <p class="msg-date"><%= new Date(msg.created_at).toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' }) %></p>
+                        </div>
+                    <% } %>
+
                 </div>
             <% }) %>
         </div>

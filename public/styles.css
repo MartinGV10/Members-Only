@@ -197,6 +197,7 @@ nav a {
     justify-content: center;
     box-shadow: 0 0 10px rgba(87, 87, 87, 0.342);
     border: 2px solid white;
+    transition: 0.2s all;
 }
 
 .add a {
@@ -240,6 +241,61 @@ img {
     height: 200px;
 }
 
-.f-admin {
-    box-shadow: none;
+.msg-text {
+    padding: 10px;
+    background-color: rgb(55, 55, 58);
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 0 5px black;
+    text-align: center;
+}
+
+.msg-tit {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.msg:hover {
+    transform: scale(1.05);
+}
+
+.del {
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.del form {
+    all: unset;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.del-btn:hover {
+    background-color: red;
+}
+
+.msg-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+
+.msg-user {
+    background-color: rgb(189, 34, 34);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.msg-date {
+    background-color: black;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 10px;
 }

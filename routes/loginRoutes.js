@@ -18,4 +18,6 @@ loginRoutes.post('/new-msg', loginController.ensureAuth, loginController.postNew
 loginRoutes.get('/profile/:username', loginController.ensureAuth, loginController.getProfile)
 loginRoutes.post('/profile/:username', loginController.ensureAuth, loginController.postProfile)
 
+loginRoutes.post('/delete/:id', loginController.postDelete)
+
 module.exports = loginRoutes

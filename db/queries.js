@@ -13,9 +13,11 @@ async function getSessionId(id) {
 }
 
 async function getMessages() {
-    const { rows } = await pool.query('SELECT * FROM messages')
-    return rows
+  return pool.query(`
+    SELECT messages.id, messages.title, messages.body, messages.created_at, users.username, users.first_name FROM messages JOIN users ON messages.user_id = users.id ORDER BY messages.created_at DESC
+  `);
 }
+
 
 async function addMessage(user_id, title, body) {
     return await pool.query('INSERT INTO messages (user_id, title, body) VALUES ($1, $2, $3)', [user_id, title, body])
@@ -28,11 +30,16 @@ async function updateUser(first_name, last_name, username, is_member, is_admin, 
     )
 }
 
+async function deletePost(postId) {
+    return pool.query('DELETE FROM messages WHERE id = $1', [postId])
+}
+
 module.exports = {
     addUser,
     loginUser,
     getSessionId,
     getMessages,
     addMessage,
-    updateUser
+    updateUser,
+    deletePost
 }
