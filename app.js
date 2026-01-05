@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }))
 const assetsPath = path.join(__dirname, 'public')
 app.use(express.static(assetsPath))
 
-app.get('/', loginRoutes)
+app.use('/', loginRoutes)
 
 const PORT = process.env.port || 3000
 
