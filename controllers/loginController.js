@@ -95,8 +95,17 @@ async function postNewMsg(req, res) {
 
 async function getProfile(req, res) {
     res.render('profile', {
-        title: 'Profile Settings'
+        title: 'Profile Settings',
+        user: req.user
     })
+}
+
+async function postProfile(req, res) {
+    const { first_name, last_name, username, is_member, is_admin } = req.body
+    if ((is_member == 'true' || is_member == '') || (is_admin == 'true' || is_admin == '')) {
+        await db.updateUser(first_name, last_name, username, is_member, is_admin, req.user.id)
+    }
+    res.redirect('/clubhouse')
 }
 
 passport.use(
@@ -131,5 +140,6 @@ module.exports = {
     getNewMsg,
     postNewMsg,
     ensureAuth,
-    getProfile
+    getProfile,
+    postProfile
 }

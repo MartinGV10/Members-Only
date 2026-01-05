@@ -21,10 +21,18 @@ async function addMessage(user_id, title, body) {
     return await pool.query('INSERT INTO messages (user_id, title, body) VALUES ($1, $2, $3)', [user_id, title, body])
 }
 
+async function updateUser(first_name, last_name, username, is_member, is_admin, id) {
+    return pool.query(` UPDATE users
+        SET first_name = $1, last_name = $2, username = $3, is_member = $4, is_admin = $5 WHERE id = $6 RETURNING id, first_name, last_name, username, is_member, is_admin`,
+        [first_name, last_name, username, is_member, is_admin, id]
+    )
+}
+
 module.exports = {
     addUser,
     loginUser,
     getSessionId,
     getMessages,
-    addMessage
+    addMessage,
+    updateUser
 }

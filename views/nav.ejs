@@ -7,7 +7,7 @@
         <a class="sel" href="/log-in">Login</a>
         <a class="sel" href="/sign-up">Sign up</a>
         <% if (user) { %>
-            <a class="sel" href="/profile">Profile Settings</a>
+            <a class="sel" href="/profile/<%= user.username %>">Profile Settings</a>
         <% } %>
     </div>
 </nav>

@@ -7,22 +7,38 @@
     <title><%= title %></title>
 </head>
 <body>
-    <%- include('nav') %>
+    <%- include('nav', {user: user}) %>
     <div class="form-cont">
-        <form action="/profile" method="post">
+        <form action="/profile/<%= user.username %>" method="post">
             <h1 class="title"><%= title %></h1>
-            <div class="f-new">
+            <div class="f-bit">
                 <div class="f-item">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="first_name" id="first_name" value="<%= user.first_name %>">
+                </div>
+    
+                <div class="f-item">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="last_name" id="last_name" value="<%= user.last_name %>">
+                </div>
+            </div>
+
+            <div class="f-bit">
+                <div class="f-item">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" value="<%= user.username %>">
                 </div>
                 
                 <div class="f-item">
-                    <label for="body">Body</label>
-                    <textarea type="text" name="body" id="body" class="new-text"></textarea>
+                    <label for="member">Become a member</label>
+                    <input type="password" name="is_member" id="is_member">
+                </div>
+                
+                <div class="f-item ">
+                    <label for="admin">Become an admin</label>
+                    <input type="password" name="is_admin" id="password">
                 </div>
             </div>
-            
 
             <button type="submit">Submit</button>
         </form>
