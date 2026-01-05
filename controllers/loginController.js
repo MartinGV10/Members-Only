@@ -53,9 +53,20 @@ function postLogin(req, res, next) {
 }
 
 function getClubhouse(req, res) {
+    console.log(req.user)
     res.render('clubhouse', {
-        title: 'Clubhouse'
+        title: 'Clubhouse',
+        user: req.user
     })
+}
+
+function ensureAuth(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    else {
+        res.redirect('/log-in')
+    }
 }
 
 passport.use(
@@ -86,5 +97,6 @@ module.exports = {
     getLogin,
     getClubhouse,
     postSignup,
-    postLogin
+    postLogin,
+    ensureAuth
 }

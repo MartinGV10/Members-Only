@@ -8,7 +8,7 @@ async function loginUser(username) {
     return await pool.query('SELECT * FROM users WHERE username = $1', [username])
 }
 
-async function getSessionId({ id }) {
+async function getSessionId(id) {
     return await pool.query('SELECT * FROM users WHERE id = $1', [id])
 }
 

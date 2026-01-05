@@ -89,6 +89,7 @@ form button, .other a {
     color: white;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.205);
     transition: 0.2s all;
 }
 
@@ -100,7 +101,7 @@ form button:hover, .other a:hover {
 form input {
     padding: 10px;
     border-radius: 10px;
-    /* border: none; */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.185);
     border: 2px solid rgb(179, 172, 166);
 }
 

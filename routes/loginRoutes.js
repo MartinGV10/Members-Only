@@ -10,6 +10,6 @@ loginRoutes.post('/sign-up', loginController.postSignup)
 loginRoutes.get('/log-in', loginController.getLogin)
 loginRoutes.post('/log-in', loginController.postLogin)
 
-loginRoutes.get('/clubhouse', loginController.getClubhouse)
+loginRoutes.get('/clubhouse', loginController.ensureAuth, loginController.getClubhouse)
 
 module.exports = loginRoutes
