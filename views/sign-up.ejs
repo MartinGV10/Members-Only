@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="form-cont">
+        <h1 class="title"><%= title %></h1>
+        <form action="/" method="post">
+            <div class="f-bit">
+                <div class="f-item">
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+    
+                <div class="f-item">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+            </div>
+
+            <div class="f-bit">
+                <div class="f-item">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                
+                <div class="f-item">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                
+                <div class="f-item">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+            </div>
+            
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
