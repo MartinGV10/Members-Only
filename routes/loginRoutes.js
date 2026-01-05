@@ -15,4 +15,6 @@ loginRoutes.get('/clubhouse', loginController.getClubhouse)
 loginRoutes.get('/new-msg', loginController.getNewMsg)
 loginRoutes.post('/new-msg', loginController.ensureAuth, loginController.postNewMsg)
 
+loginRoutes.get('/profile/:username', loginController.ensureAuth, loginController.getProfile)
+
 module.exports = loginRoutes

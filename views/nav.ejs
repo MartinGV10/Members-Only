@@ -6,6 +6,8 @@
     <div class="n-side">
         <a class="sel" href="/log-in">Login</a>
         <a class="sel" href="/sign-up">Sign up</a>
-        <a class="sel">Profile Settings</a>
+        <% if (user) { %>
+            <a class="sel" href="/profile">Profile Settings</a>
+        <% } %>
     </div>
 </nav>

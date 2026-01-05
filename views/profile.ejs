@@ -7,30 +7,25 @@
     <title><%= title %></title>
 </head>
 <body>
-    <%- include('nav', {user: user}) %>
+    <%- include('nav') %>
     <div class="form-cont">
-        <form action="/log-in" method="post">
+        <form action="/profile" method="post">
             <h1 class="title"><%= title %></h1>
-            <div class="f-bit">
+            <div class="f-new">
                 <div class="f-item">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
                 </div>
                 
                 <div class="f-item">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
+                    <label for="body">Body</label>
+                    <textarea type="text" name="body" id="body" class="new-text"></textarea>
                 </div>
             </div>
             
 
             <button type="submit">Submit</button>
         </form>
-
-        <div class="other">
-            <h2>Don't have an account?</h2>
-            <a href="/sign-up">Log in</a>
-        </div>
     </div>
     
 </body>

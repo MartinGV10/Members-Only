@@ -43,7 +43,8 @@ async function postSignup(req, res, next) {
 
 function getLogin(req, res) {
     res.render('log-in', {
-        title: 'Log In'
+        title: 'Log In',
+        user: req.user
     })
 }
 
@@ -92,6 +93,12 @@ async function postNewMsg(req, res) {
     }
 }
 
+async function getProfile(req, res) {
+    res.render('profile', {
+        title: 'Profile Settings'
+    })
+}
+
 passport.use(
     new LocalStrategy(async (username, password, done) => {
         try {
@@ -123,5 +130,6 @@ module.exports = {
     postLogin,
     getNewMsg,
     postNewMsg,
-    ensureAuth
+    ensureAuth,
+    getProfile
 }
