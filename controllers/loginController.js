@@ -16,8 +16,15 @@ function getLogin(req, res) {
     })
 }
 
+function getClubhouse(req, res) {
+    res.render('clubhouse', {
+        title: 'Clubhouse'
+    })
+}
+
 module.exports = {
     getHome,
     getSignup,
-    getLogin
+    getLogin,
+    getClubhouse
 }
