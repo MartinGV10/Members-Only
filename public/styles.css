@@ -47,7 +47,7 @@ body {
     padding: 20px;
 }
 
-form {
+form, .other {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -67,7 +67,7 @@ form {
     align-items: center;
     justify-content: center;
     gap: 50px;
-    margin-top: 150px;
+    margin-top: 200px;
 }
 
 .f-item {
@@ -82,7 +82,7 @@ form {
     gap: 10px;
 }
 
-form button {
+form button, .other a {
     padding: 10px;
     border: none;
     background-color: black;
@@ -92,7 +92,7 @@ form button {
     transition: 0.2s all;
 }
 
-form button:hover {
+form button:hover, .other a:hover {
     transform: scale(1.05);
     background-color: rgba(0, 0, 0, 0.705);
 }
@@ -102,4 +102,9 @@ form input {
     border-radius: 10px;
     /* border: none; */
     border: 2px solid rgb(179, 172, 166);
+}
+
+.other {
+    padding: 15px;
+    width: 20%;
 }

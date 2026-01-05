@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="form-cont">
-        <h1 class="title"><%= title %></h1>
         <form action="/sign-up" method="post">
+            <h1 class="title"><%= title %></h1>
             <div class="f-bit">
                 <div class="f-item">
                     <label for="firstName">First Name</label>
@@ -38,10 +38,14 @@
                     <input type="password" name="confirm_password" id="password">
                 </div>
             </div>
-            
 
             <button type="submit">Submit</button>
         </form>
+
+        <div class="other">
+            <h2>Already have an account?</h2>
+            <a href="/log-in">Log in</a>
+        </div>
     </div>
     
 </body>
