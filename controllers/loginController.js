@@ -4,9 +4,12 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcryptjs')
 const db = require('../db/queries')
 
-function getHome(req, res) {
+async function getHome(req, res) {
+    const messages = await db.getMessages()
     res.render('index', {
-        title: 'Home'
+        title: 'Home',
+        user: req.user,
+        messages: messages
     })
 }
 
@@ -52,11 +55,13 @@ function postLogin(req, res, next) {
     })(req, res, next)
 }
 
-function getClubhouse(req, res) {
+async function getClubhouse(req, res) {
     console.log(req.user)
+    const messages = await db.getMessages()
     res.render('clubhouse', {
         title: 'Clubhouse',
-        user: req.user
+        user: req.user,
+        messages: messages
     })
 }
 

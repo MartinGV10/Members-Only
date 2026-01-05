@@ -12,8 +12,14 @@ async function getSessionId(id) {
     return await pool.query('SELECT * FROM users WHERE id = $1', [id])
 }
 
+async function getMessages() {
+    const { rows } = await pool.query('SELECT * FROM messages')
+    return rows
+}
+
 module.exports = {
     addUser,
     loginUser,
-    getSessionId
+    getSessionId,
+    getMessages
 }
